@@ -1,0 +1,6 @@
+flask
+python-binance
+python-dotenv
+psycopg2
+cryptography
+requests

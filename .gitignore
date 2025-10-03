@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+
+# Logs
+logs/
+*.log
+
+# VSCode
+.vscode/
+
+# Secure_Config
+.env.encrypted
+.encryption_key
+.env.backup_plaintext
