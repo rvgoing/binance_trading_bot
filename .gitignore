@@ -1,8 +1,15 @@
+# Ignore the entire data folder
+data/
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# specific code
+app1.py
+app2.py
+app3.py
 
 # Environment
 .env
