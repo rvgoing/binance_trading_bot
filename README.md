@@ -13,24 +13,37 @@ A Flask-based backend service for Binance trading, designed for 24/7 cloud deplo
 - Error handling for API/network issues
 - All API responses in JSON
 
+
 ## Setup
 
 1. **Clone the repo**
-2. **Create a `.env` file** (see `.env.example`):
-   ```
-   BINANCE_API_KEY=your_api_key
-   BINANCE_SECRET_KEY=your_secret_key
-   BINANCE_MODE=test
-   ```
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
-4. **Run locally**:
+3. **API Key Encryption Setup** (using `secure_config.py`):
+   ```bash
+   python secure_config.py --setup
+   ```
+   - Enter your Binance API Key and Secret Key when prompted
+   - Choose mode: `test` (for testnet) or `live` (for mainnet)
+4. **Verify your configuration**:
+   ```bash
+   python secure_config.py --verify
+   ```
+5. **Run locally**:
    ```bash
    python app.py
    ```
    The app will be available at `http://localhost:5000`.
+
+### SecureConfig Notes
+
+- `.encryption_key` and `.env.encrypted` are generated automatically
+- Testnet API Key: apply at https://testnet.binance.vision/
+- Mainnet API Key: apply at https://www.binance.com/
+- **Backup `.encryption_key` to a secure location**
+- Do NOT commit your API keys or `.encryption_key` to version control
 
 ## API Endpoints
 - `GET /health` — returns `{ "status": "OK" }`
