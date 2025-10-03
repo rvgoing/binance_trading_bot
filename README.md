@@ -37,7 +37,7 @@ A Flask-based backend service for Binance trading, designed for 24/7 cloud deplo
    ```
    The app will be available at `http://localhost:5000`.
 
-### SecureConfig Notes
+### MUST READ SecureConfig Notes
 
 - `.encryption_key` and `.env.encrypted` are generated automatically
 - Testnet API Key: apply at https://testnet.binance.vision/
