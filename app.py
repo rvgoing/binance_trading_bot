@@ -8,6 +8,7 @@ from binance.client import Client
 from binance.enums import *
 from binance.exceptions import BinanceAPIException
 
+
 # Load environment variables FROM .env directly
 # Load environment variables
 # load_dotenv()
@@ -56,10 +57,12 @@ if BINANCE_MODE == 'test':
         BINANCE_SECRET_KEY,
         testnet=True
     )
-    logging.info("🧪 Using Binance TESTNET - No real money involved")
+    # logging.info("🧪 Using Binance TESTNET - No real money involved")
+    logging.info("Using Binance TESTNET - No real money involved")
 else:
     client = Client(BINANCE_API_KEY, BINANCE_SECRET_KEY)
-    logging.warning("⚠️  Using Binance LIVE - Real trading mode!")
+    # logging.warning("⚠️  Using Binance LIVE - Real trading mode!")
+    logging.warning("Using Binance LIVE - Real trading mode!")
 
 #======================================
 # Load database module
@@ -342,15 +345,18 @@ def test_connection():
     try:
         # 測試伺服器時間
         server_time = client.get_server_time()
-        logging.info(f"✅ Server time: {server_time}")
+        # logging.info(f"✅ Server time: {server_time}")
+        logging.info(f"Server time: {server_time}")
         
         # 測試獲取 K 線
         klines = client.get_klines(symbol='BTCUSDT', interval='1m', limit=5)
-        logging.info(f"✅ Got {len(klines)} klines")
+        # logging.info(f"✅ Got {len(klines)} klines")
+        logging.info(f"Got {len(klines)} klines")
         
         return True
     except Exception as e:
-        logging.error(f"❌ Connection test failed: {e}")
+        # logging.error(f"❌ Connection test failed: {e}")
+        logging.error(f"Connection test failed: {e}")
         return False
     
 
@@ -363,10 +369,10 @@ def get_stats():
 # 在啟動前測試
 if __name__ == '__main__':
     if not test_connection():
-        logging.error("無法連接幣安 API！")
+        # logging.error("無法連接幣安 API！")
         exit(1)
     else:
-        logging.info("已經連接幣安 API！")
+        # logging.info("已經連接幣安 API！")
         print("\n已經連接幣安 API！\n")
     app.run(host='0.0.0.0', port=5000)
 
